@@ -594,4 +594,4 @@ scripts/                  # deploy-managed-agent.sh · validate.py · orchestrat
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=CSlawyer1985/claude-for-legal-ZH&type=Date)](https://star-history.com/#CSlawyer1985/claude-for-legal-ZH&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=CSlawyer1985/claude-for-legal-ZH&type=Date)](https://star-history.com/#CSlawyer1985/claude-for-legal-ZH)
