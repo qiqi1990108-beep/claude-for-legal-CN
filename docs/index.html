@@ -8,7 +8,7 @@
 <link rel='icon' href='data:,' />
 <link rel='preconnect' href='https://fonts.googleapis.com' />
 <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-<link href='https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet' />
+<link href='https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter+Tight:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet' />
 <style>/*
  * Atelier Zero — canonical landing-page stylesheet.
  *
@@ -1796,7 +1796,7 @@ footer {
 }
 .foot-mega .signature-link {
   display: block;
-  font-family: 'Snell Roundhand', 'Zapfino', 'Brush Script MT', 'Apple Chancery', cursive;
+  font-family: 'Great Vibes', 'Snell Roundhand', 'Zapfino', 'Brush Script MT', 'Apple Chancery', cursive;
   font-size: clamp(32px, 4.3vw, 68px);
   font-weight: 500;
   letter-spacing: -0.03em;
@@ -2002,7 +2002,7 @@ footer {
     </nav>
     <div class='nav-side'>
       <a class='nav-cta ghost' href='https://github.com/CSlawyer1985/claude-for-legal-ZH/blob/main/QUICKSTART.md' target='_blank' rel='noreferrer noopener'>快速开始</a>
-      <a class='nav-cta' href='https://github.com/CSlawyer1985/claude-for-legal-ZH' target='_blank' rel='noreferrer noopener'>GitHub · 42★</a>
+      <a class='nav-cta' href='https://github.com/CSlawyer1985/claude-for-legal-ZH' target='_blank' rel='noreferrer noopener'>GitHub · <span data-github-stars>★</span></a>
       <span class='status-dot' aria-hidden='true'></span>
     </div>
   </div>
@@ -2630,6 +2630,12 @@ footer {
       }
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     for (var j = 0; j < elements.length; j++) observer.observe(elements[j]);
+    // Safety timeout: reveal any remaining hidden elements after 4s
+    // in case IntersectionObserver misses them (e.g. footer at page bottom).
+    setTimeout(function () {
+      var remaining = document.querySelectorAll('[data-reveal]:not([data-revealed])');
+      for (var k = 0; k < remaining.length; k++) remaining[k].dataset.revealed = 'true';
+    }, 4000);
   })();
 
   /*
@@ -2657,16 +2663,13 @@ footer {
     }
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-</script>
 
-<script>
   /*
-   * GitHub star count — pulls live count and replaces the placeholder
-   * text in the nav CTA. Failures fall back silently.
+   * Fetch live star count from GitHub API and update the nav badge.
    */
   (function () {
-    var cta = document.querySelector('a.nav-cta:not(.ghost)');
-    if (!cta) return;
+    var el = document.querySelector('[data-github-stars]');
+    if (!el) return;
     function format(n) {
       if (!isFinite(n) || n <= 0) return '0';
       if (n < 1000) return String(n);
@@ -2679,10 +2682,9 @@ footer {
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data || typeof data.stargazers_count !== 'number') return;
-        cta.textContent = 'Star · ' + format(data.stargazers_count);
-        cta.setAttribute('aria-label', 'Star on GitHub — ' + format(data.stargazers_count) + ' stars');
+        el.textContent = format(data.stargazers_count);
       })
-      .catch(function () { /* leave placeholder on failure */ });
+      .catch(function () { /* keep placeholder */ });
   })();
 </script>
 </body>

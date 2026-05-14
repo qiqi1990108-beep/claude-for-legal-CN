@@ -15,6 +15,10 @@
 
 > **新用户？** 从 [QUICKSTART.md](QUICKSTART.md) 开始——60 秒完成安装。本文是完整参考手册。
 
+<p align="center">
+  <img src="docs/assets/hero.png" alt="Claude for Legal 中国法版本 — 着陆页 Hero" width="800">
+</p>
+
 本仓库所有内容可通过**两种方式**使用：安装为 [Claude Code](https://claude.com/product/claude-code) 插件，或通过 [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) 部署在你自己的工作流引擎后台。同一套 system prompt，同一套技能——你选择在哪里运行。
 
 ## 在 Claude Code 中安装
@@ -77,6 +81,13 @@
 | **时效验证流程** | 引用具体法条、司法解释、诉讼时效时强制独立检索验证 |
 | **知识库路由** | 优先源（理解与适用/类案指南/最高院审判实务）→扩展源→效力警示源，按权威分级检索 |
 
+<p align="center">
+  <img src="docs/assets/method-1.png" alt="方法论 — 步骤 1" width="400">
+  <img src="docs/assets/method-2.png" alt="方法论 — 步骤 2" width="400">
+  <img src="docs/assets/method-3.png" alt="方法论 — 步骤 3" width="400">
+  <img src="docs/assets/method-4.png" alt="方法论 — 步骤 4" width="400">
+</p>
+
 ### 知识库集成
 
 本版本深度集成用户知识库体系（`/Users/CS/Documents/知识库/`），包含：
@@ -114,6 +125,10 @@
 - **托管 Agent 蓝图**——用于定时、持续监控型工作流（续签监控、案件进度监控、法规动态监控、尽调网格、产品上线雷达）。
 - **MCP 连接器**——覆盖通用生产力工具（飞书、Google Drive）和法律专属系统（元典 yuandian、北大法宝、威科先行、e签宝、聚法案例等）。
 - **命名 Agent**——端到端工作流 Agent（供应商合同审查、个人信息主体权利响应、劳动合同解除审查、要件分析表构建……），每个 Agent 有独立的职位式名称和单一启动命令。
+
+<p align="center">
+  <img src="docs/assets/capabilities.png" alt="能力展示 — Agent 卡片网格" width="800">
+</p>
 
 ## Agent 列表
 
@@ -215,6 +230,14 @@
 | **社区技能更新** | 检查已安装社区技能的更新 | `legal-builder-hub` | `/legal-builder-hub:auto-updater` |
 | **注册表同步** | 定期检查已关注注册表中的新增和更新技能 | `legal-builder-hub` | scheduled agent |
 
+<p align="center">
+  <img src="docs/assets/lab-1.png" alt="Lab — Agent 工作界面 1" width="250">
+  <img src="docs/assets/lab-2.png" alt="Lab — Agent 工作界面 2" width="250">
+  <img src="docs/assets/lab-3.png" alt="Lab — Agent 工作界面 3" width="250">
+  <img src="docs/assets/lab-4.png" alt="Lab — Agent 工作界面 4" width="250">
+  <img src="docs/assets/lab-5.png" alt="Lab — Agent 工作界面 5" width="250">
+</p>
+
 托管 Agent 部署——`agent.yaml`、leaf-worker 子 Agent、steering 事件示例和各 Agent 安全说明，详见 **[managed-agent-cookbooks/](./managed-agent-cookbooks)**。
 
 ## 仓库布局
@@ -268,6 +291,11 @@ scripts/                  # deploy-managed-agent.sh · validate.py · orchestrat
 | **托管 Agent 蓝图** | `agent.yaml` + 一级子 Agent + steering 示例，用于无头部署。 | `managed-agent-cookbooks/<slug>/` |
 
 一切皆为 Markdown 和 JSON。无需构建步骤。
+
+<p align="center">
+  <img src="docs/assets/work-1.png" alt="工作成果展示 1" width="400">
+  <img src="docs/assets/work-2.png" alt="工作成果展示 2" width="400">
+</p>
 
 ## 业务领域插件
 
@@ -578,11 +606,19 @@ scripts/                  # deploy-managed-agent.sh · validate.py · orchestrat
 
 依据 [Apache License, Version 2.0](LICENSE) 许可。
 
+<p align="center">
+  <img src="docs/assets/about.png" alt="关于作者 — 着陆页 About 区域" width="800">
+</p>
+
 ## 关于作者
 
 **陈石律师**，浙江海泰律师事务所副主任、高级合伙人、房地产与建设工程部主任，宁波市律师协会副秘书长、第七届宁波仲裁委员会仲裁员，聚焦建筑房地产、投融资、并购重组及商事争议解决。曾获多家法律媒体与专业机构认可，荣登 LegalOne 2025 中国区建工及房地产实务先锋 45 强、律新社 2025 年度管理合伙人 20 佳（华东），入选《商法》The A-List 法律精英，获评 ALB China 区域市场十五佳长三角地区律师新星，并获律新社 2024 年度并购领域品牌之星。长期为万科、华润置地、信达地产、保利置业、招商蛇口、中海地产等企业提供法律服务，承办"首宗百亿地王""长春第一高楼""台州第一高楼"等代表性项目，累计服务项目投资额超千亿。近年来持续推动 AI 与法律实务融合，强调以结构化方法打通技术逻辑、法律判断与商业场景；著有《赋能法律人：AI 底层思维与应用范式》，并在多地开展相关主题讲座与分享。
 
 本中国法适配版本由陈石律师基于其知识库体系（`/Users/CS/Documents/知识库/`）和多年法律实务经验完成从美国法到中国法的系统改造。
+
+<p align="center">
+  <img src="docs/assets/testimonial.png" alt="用户评价" width="800">
+</p>
 
 ## 致谢
 
@@ -591,6 +627,10 @@ scripts/                  # deploy-managed-agent.sh · validate.py · orchestrat
 - **[浙江海泰律师事务所](https://www.hightac.com/)** — 提供专业成长环境和实务土壤，本版本中融入的合同审查方法论、诉讼分析框架和风险评价体系均源于海泰的长期培养
 
 ---
+
+<p align="center">
+  <img src="docs/assets/cta.png" alt="开始使用 Claude for Legal" width="800">
+</p>
 
 ## Star History
 
