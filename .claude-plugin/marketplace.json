@@ -38,7 +38,7 @@
       }
     },
     {
-      "name": "employment-legal",
+      "name": "employment-legal-cn",
       "source": "./employment-legal",
       "description": "审查劳动合同解除的法定事由，认定劳动关系（劳动和社会保障部〔2005〕12号三要素），追踪假期节点，开展内部调查，起草劳动规章制度（含民主程序和公示），处理跨省用工规划。适配劳动合同法、劳动争议调解仲裁法。",
       "author": {
