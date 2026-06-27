@@ -61,10 +61,10 @@ argument-hint: "[调查事项名称]"
 ## 示例
 
 ```
-/employment-legal:investigation-memo [调查事项名称]
+/employment-legal-cn:investigation-memo [调查事项名称]
 ```
 
 ```
-/employment-legal:investigation-memo [调查事项名称]
+/employment-legal-cn:investigation-memo [调查事项名称]
 （如已有草案则更新）
 ```

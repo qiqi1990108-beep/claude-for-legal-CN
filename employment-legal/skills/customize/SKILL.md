@@ -14,16 +14,16 @@ argument-hint: "[章节名称，或描述你要修改的内容]"
 
 ## 何时运行
 
-用户输入了 `/employment-legal:customize`。他们想要修改其实践画像中的某项内容——管辖地、风险姿态、上报联系人、规章制度立场——而不重新运行整个首次配置访谈，也不手动编辑 YAML。
+用户输入了 `/employment-legal-cn:customize`。他们想要修改其实践画像中的某项内容——管辖地、风险姿态、上报联系人、规章制度立场——而不重新运行整个首次配置访谈，也不手动编辑 YAML。
 
 ## 做什么
 
 1. **读取配置。** 读取
-   `~/.claude/plugins/config/claude-for-legal/employment-legal/CLAUDE.md`
+   `~/.claude/plugins/config/claude-for-legal/employment-legal-cn/CLAUDE.md`
    （和上一级的 `~/.claude/plugins/config/claude-for-legal/company-profile.md`）。
    如果插件配置不存在或仍包含 `[PLACEHOLDER]` 值，说：
 
-   > 你尚未运行设置。先运行 `/employment-legal:cold-start-interview`——customize 是用于调整已有画像的。
+   > 你尚未运行设置。先运行 `/employment-legal-cn:cold-start-interview`——customize 是用于调整已有画像的。
 
 2. **展示可自定义的映射。** 列举画像中的内容，按组，附当前值的一行摘要：
 
@@ -57,7 +57,7 @@ argument-hint: "[章节名称，或描述你要修改的内容]"
 
 6. **收尾。**
 
-   > 完成。你的下一次输出将反映此变更。还有其他吗？你可以随时运行 `/employment-legal:customize`。
+   > 完成。你的下一次输出将反映此变更。还有其他吗？你可以随时运行 `/employment-legal-cn:customize`。
 
 ## 护栏
 

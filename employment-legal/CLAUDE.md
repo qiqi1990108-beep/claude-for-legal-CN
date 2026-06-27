@@ -3,14 +3,14 @@ CONFIGURATION LOCATION
 
 User-specific configuration for this plugin lives at a version-independent path that survives plugin updates:
 
-  ~/.claude/plugins/config/claude-for-legal/employment-legal/CLAUDE.md
+  ~/.claude/plugins/config/claude-for-legal/employment-legal-cn/CLAUDE.md
 
 Rules for every skill, command, and agent in this plugin:
 1. READ configuration from that path. Not from this file.
-2. If that file does not exist or still contains [PLACEHOLDER] markers, STOP before doing substantive work. Say: "此插件需要完成设置才能提供有用输出。请运行 /employment-legal:cold-start-interview —— 约需 10-15 分钟，插件中所有命令均依赖此设置。未完成设置前输出的内容将是通用的，可能不匹配你的实务操作。" Do NOT proceed with placeholder or default configuration. The only skills that run without setup are /employment-legal:cold-start-interview itself and any --check-integrations flag.
+2. If that file does not exist or still contains [PLACEHOLDER] markers, STOP before doing substantive work. Say: "此插件需要完成设置才能提供有用输出。请运行 /employment-legal-cn:cold-start-interview —— 约需 10-15 分钟，插件中所有命令均依赖此设置。未完成设置前输出的内容将是通用的，可能不匹配你的实务操作。" Do NOT proceed with placeholder or default configuration. The only skills that run without setup are /employment-legal-cn:cold-start-interview itself and any --check-integrations flag.
 3. Setup and cold-start-interview WRITE to that path, creating parent directories as needed.
 4. On first run after a plugin update, if a populated CLAUDE.md exists at the old cache path
-   (~/.claude/plugins/cache/claude-for-legal/employment-legal/<version>/CLAUDE.md for any version)
+   (~/.claude/plugins/cache/claude-for-legal/employment-legal-cn/<version>/CLAUDE.md for any version)
    but not at the config path, copy it forward to the config path before proceeding.
 5. This file (the one you are reading) is the TEMPLATE. It ships with the plugin and shows the
    structure the config should have. It is replaced on every plugin update. Never write user data here.
@@ -19,7 +19,7 @@ Rules for every skill, command, and agent in this plugin:
 -->
 
 # 中国劳动法实践画像
-*由 cold-start 于 [DATE] 编写。如出现 `[PLACEHOLDER]`，请运行 `/employment-legal:cold-start-interview`。*
+*由 cold-start 于 [DATE] 编写。如出现 `[PLACEHOLDER]`，请运行 `/employment-legal-cn:cold-start-interview`。*
 
 ---
 
@@ -56,11 +56,11 @@ Rules for every skill, command, and agent in this plugin:
 
 | 集成 | 状态 | 不可用时的替代方案 |
 |---|---|---|
-| HRIS（北森/Moka/飞书人事/钉钉智能人事） | [✓ / ✗] | 假期数据记录在 `~/.claude/plugins/config/claude-for-legal/employment-legal/leave-register.yaml`；手动录入 via `/employment-legal:log-leave` |
+| HRIS（北森/Moka/飞书人事/钉钉智能人事） | [✓ / ✗] | 假期数据记录在 `~/.claude/plugins/config/claude-for-legal/employment-legal-cn/leave-register.yaml`；手动录入 via `/employment-legal-cn:log-leave` |
 | 文件存储（本地/企业网盘/SharePoint） | [✓ / ✗] | 读取本地路径下的劳动规章制度 + 种子文件 |
 | 即时通讯（企业微信/飞书/钉钉） | [✓ / ✗] | 审查结果仅输出为文件，不发送频道内摘要 |
 
-*重新检查：`/employment-legal:cold-start-interview --check-integrations`*
+*重新检查：`/employment-legal-cn:cold-start-interview --check-integrations`*
 
 ---
 
@@ -186,7 +186,7 @@ Rules for every skill, command, and agent in this plugin:
 
 测试：一家律所就这个主题发出的风险提示会有"近期发展"一节吗？如果有，你需要检查近期动态。模型知识对最近一个季度发生的事始终是滞后的。
 
-**验证日志。** 当你或用户核实了一个标记项目——对照一手来源确认了引用、对照地方规定检查了期限、对照现行法规核实了阈值——记录下来，以便下一个人不需要重新核实。在 `~/.claude/plugins/config/claude-for-legal/employment-legal/verification-log.md` 中写入一行：
+**验证日志。** 当你或用户核实了一个标记项目——对照一手来源确认了引用、对照地方规定检查了期限、对照现行法规核实了阈值——记录下来，以便下一个人不需要重新核实。在 `~/.claude/plugins/config/claude-for-legal/employment-legal-cn/verification-log.md` 中写入一行：
 
 `[YYYY-MM-DD] [引用或事实] 由 [姓名] 对照 [来源] 核实 —— [结论：已确认 / 已修正为 X / 无法核实]`
 
@@ -264,13 +264,13 @@ Rules for every skill, command, and agent in this plugin:
 
 ## 本领域的临时问题
 
-当用户在本插件的实践领域提出问题——不仅是调用技能时——首先读取 `~/.claude/plugins/config/claude-for-legal/employment-legal/CLAUDE.md`（及 `~/.claude/plugins/config/claude-for-legal/company-profile.md`），并应用。如已填充，以已配置的助手身份回答：
+当用户在本插件的实践领域提出问题——不仅是调用技能时——首先读取 `~/.claude/plugins/config/claude-for-legal/employment-legal-cn/CLAUDE.md`（及 `~/.claude/plugins/config/claude-for-legal/company-profile.md`），并应用。如已填充，以已配置的助手身份回答：
 
 - 使用其管辖范围、风险偏好、实务立场和上报链
 - 即使没有技能运行也应用护栏：来源溯源、引用卫生、管辖地识别、决策姿态、审查备注格式
 - 以该实务中同事的方式组织回答——校准其设置（法务 vs. 律所）、角色（律师 vs. 非律师）和风险容忍度
 - 当行动从问题衍生时提供决策树
-- 如有结构化技能可做得更好，建议："这是一个快速回答。如需完整框架，请运行 `/employment-legal:[相关技能]`。"
+- 如有结构化技能可做得更好，建议："这是一个快速回答。如需完整框架，请运行 `/employment-legal-cn:[相关技能]`。"
 
 ## 比例原则
 
@@ -384,7 +384,7 @@ Rules for every skill, command, and agent in this plugin:
 | 病假/医疗期 | 企业职工患病或非因工负伤医疗期规定 | 按工作年限3-24个月，工资不低于最低工资80% |
 | 工伤假 | 工伤保险条例 | 停工留薪期，原工资福利待遇不变 |
 
-**假期登记册位置：** `~/.claude/plugins/config/claude-for-legal/employment-legal/leave-register.yaml`
+**假期登记册位置：** `~/.claude/plugins/config/claude-for-legal/employment-legal-cn/leave-register.yaml`
 
 ---
 
@@ -401,7 +401,7 @@ Rules for every skill, command, and agent in this plugin:
 ## 系统
 
 **HRIS：** [系统名称 / 无]
-**假期数据访问：** [法务有读取权限 / 手动——`~/.claude/plugins/config/claude-for-legal/employment-legal/leave-register.yaml`]
+**假期数据访问：** [法务有读取权限 / 手动——`~/.claude/plugins/config/claude-for-legal/employment-legal-cn/leave-register.yaml`]
 **劳动规章制度位置：** [企业网盘文件夹 / SharePoint / 本地路径]
 
 ---
@@ -428,4 +428,4 @@ Rules for every skill, command, and agent in this plugin:
 
 ---
 
-*重新运行：`/employment-legal:cold-start-interview --redo`*
+*重新运行：`/employment-legal-cn:cold-start-interview --redo`*
